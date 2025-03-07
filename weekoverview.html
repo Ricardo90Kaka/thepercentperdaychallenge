@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Percent Per Day Challenge - Weekoverzicht</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>The Percent Per Day Challenge</h1>
+        <nav>
+            <a href="index.html">Home</a> | <a href="history.html">Historie</a> | <a href="weekoverview.html">Weekoverzicht</a>
+        </nav>
+    </header>
+    <main>
+        <section id="week-overview">
+            <h2>Weekoverzicht</h2>
+            <div id="weekly-goal">Wekelijkse winstdoel: Nog niet berekend</div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill">
+                    <span id="progress-text"></span>
+                </div>
+            </div>
+            <table id="week-results">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Maandag</th>
+                        <th>Dinsdag</th>
+                        <th>Woensdag</th>
+                        <th>Donderdag</th>
+                        <th>Vrijdag</th>
+                        <th>Zaterdag</th>
+                        <th>Zondag</th>
+                        <th>Totaal</th>
+                    </tr>
+                </thead>
+                <tbody id="week-results-body"></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

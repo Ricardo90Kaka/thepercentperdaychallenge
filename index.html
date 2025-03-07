@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Percent Per Day Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>The Percent Per Day Challenge</h1>
+        <nav>
+            <a href="index.html">Home</a> | <a href="history.html">Historie</a> | <a href="weekoverview.html">Weekoverzicht</a>
+        </nav>
+    </header>
+    <main>
+        <section id="settings">
+            <h2>Instellingen</h2>
+            <div id="start-balance-display">Huidige beginstand: Nog niet ingesteld</div>
+            <form id="settings-form" onsubmit="event.preventDefault(); saveSettings();">
+                <label for="start-balance">Beginstand (€):</label>
+                <input type="number" id="start-balance" step="0.01" required>
+                <label for="target-percentage">Dagelijks doelpercentage (%):</label>
+                <input type="number" id="target-percentage" value="1" step="0.01" required>
+                <button type="submit">Opslaan</button>
+                <button type="button" onclick="resetData()">Reset Alles</button>
+            </form>
+        </section>
+        <section id="daily-entry">
+            <h2>Dagelijkse invoer</h2>
+            <form id="daily-form" onsubmit="event.preventDefault(); addDailyEntry();">
+                <label for="end-balance">Eindbalans (€):</label>
+                <input type="number" id="end-balance" step="0.01" required>
+                <button type="submit">Toevoegen</button>
+            </form>
+        </section>
+        <section id="growth">
+            <h2>Groei-overzicht</h2>
+            <canvas id="growthChart"></canvas>
+        </section>
+        <section id="current-week-overview">
+            <h2>Huidige week</h2>
+            <table id="current-week-results">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Maandag</th>
+                        <th>Dinsdag</th>
+                        <th>Woensdag</th>
+                        <th>Donderdag</th>
+                        <th>Vrijdag</th>
+                        <th>Zaterdag</th>
+                        <th>Zondag</th>
+                        <th>Totaal</th>
+                    </tr>
+                </thead>
+                <tbody id="current-week-results-body"></tbody>
+            </table>
+            <div class="progress-container">
+                <div id="progress-fill" class="progress-fill"></div>
+                <span id="progress-text" class="progress-text"></span>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

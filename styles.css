@@ -1,0 +1,248 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #2c3e50;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+section {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+input[type="number"], input[type="date"] {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+}
+
+button {
+    padding: 8px 15px;
+    font-size: 1em;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button[onclick="resetData()"], button[onclick^="deleteEntry"] {
+    background-color: #e74c3c;
+}
+
+button[onclick="resetData()"]:hover, button[onclick^="deleteEntry"]:hover {
+    background-color: #c0392b;
+}
+
+#start-balance-display, #weekly-goal {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px 5px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+td:nth-child(1) {
+    text-align: left; /* Weeknummer links uitlijnen */
+}
+
+/* Verticale lijnen tussen dagen in weekoverzicht */
+#week-results td {
+    border-right: 1px solid #ddd;
+}
+
+#week-results td:nth-child(9) {
+    border-right: none; /* Geen lijn na Totaal */
+}
+
+/* Percentage styling */
+.percentage {
+    font-size: 0.833em;
+    font-style: italic;
+}
+
+/* Kleurcodering */
+.positive {
+    color: #2ecc71;
+}
+
+.negative {
+    color: #e74c3c;
+}
+
+/* Progressiebalk */
+.progress-bar {
+    width: 100%;
+    height: 30px; /* Verhoogd voor betere leesbaarheid */
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative; /* Voor positionering van tekst */
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #2ecc71;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Tekst centreren */
+}
+
+#progress-text {
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Contrast verbeteren */
+    white-space: nowrap; /* Voorkom tekstafbreking */
+}
+
+/* Modaal venster styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #34495e;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content button[type="submit"] {
+    margin-top: 15px;
+}
+
+#cancel-edit {
+    background-color: #95a5a6;
+}
+
+#cancel-edit:hover {
+    background-color: #7f8c8d;
+}
+
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: #ddd;
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: #333;
+}

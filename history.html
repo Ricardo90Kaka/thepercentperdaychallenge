@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Percent Per Day Challenge - Historie</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>The Percent Per Day Challenge</h1>
+        <nav>
+            <a href="index.html">Home</a> | <a href="history.html">Historie</a> | <a href="weekoverview.html">Weekoverzicht</a>
+        </nav>
+    </header>
+    <main>
+        <section id="history">
+            <h2>Historische Data</h2>
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Eindbalans (€)</th>
+                        <th>Doelstelling (€)</th>
+                        <th>Winst/Verlies (€)</th>
+                        <th>Winst/Verlies (%)</th>
+                        <th>Actie</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modaal venster voor het wijzigingsformulier -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h3>Invoer wijzigen</h3>
+            <form id="edit-form">
+                <label>Datum: <input type="date" id="edit-date" required></label>
+                <label>Eindbalans (€): <input type="number" id="edit-balance" step="0.01" required></label>
+                <input type="hidden" id="edit-index">
+                <button type="submit">Opslaan</button>
+                <button type="button" id="cancel-edit">Annuleren</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
