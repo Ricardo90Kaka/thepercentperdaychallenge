@@ -141,7 +141,7 @@ function updateHistoryTable() {
 
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${new Date(entry.date).toLocaleDateString()}</td>
+            <td>${new Date(entry.date).toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: '2-digit' })}</td>
             <td>${formatNumber(entry.endBalance)}</td>
             <td>${formatNumber(targetBalance)}</td>
             <td>${formatNumber(profitLossAbsolute)}</td>

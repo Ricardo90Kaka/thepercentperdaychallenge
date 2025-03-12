@@ -251,3 +251,9 @@ td:nth-child(1) {
     overflow-x: auto;
     width: 100%;
 }
+
+#history-table th, #history-table td {
+    width: auto;
+    min-width: 80px; /* Minimale breedte, pas dit aan indien nodig */
+    white-space: nowrap; /* Voorkomt dat tekst naar een nieuwe regel breekt */
+}
