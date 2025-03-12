@@ -332,6 +332,48 @@ function updateWeekOverview() {
     }
 }
 
+// Functie om data te exporteren als JSON
+function exportData() {
+    const data = {
+        settings: settings,
+        entries: entries
+    };
+    const dataStr = JSON.stringify(data, null, 2); // Mooie opmaak met inspringen
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'percent-per-day-data.json'; // Bestandsnaam
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Functie om data te importeren uit een JSON-bestand
+function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            if (data.settings && data.entries) {
+                localStorage.setItem('settings', JSON.stringify(data.settings));
+                localStorage.setItem('entries', JSON.stringify(data.entries));
+                alert('Data succesvol geïmporteerd! De pagina wordt herladen.');
+                location.reload(); // Herlaad om de nieuwe data te tonen
+            } else {
+                alert('Ongeldig bestand: ontbrekende instellingen of entries.');
+            }
+        } catch (error) {
+            alert('Fout bij importeren: ongeldig JSON-bestand.');
+        }
+    };
+    reader.readAsText(file);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM geladen, initialiseren...");
     const modal = document.getElementById('edit-modal');
@@ -377,6 +419,20 @@ document.addEventListener('DOMContentLoaded', () => {
         updateHistoryTable();
         updateWeekOverview();
     }
+
+        // Exportknop functionaliteit
+        const exportBtn = document.getElementById('export-btn');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', exportData);
+        }
+    
+        // Importknop functionaliteit
+        const importBtn = document.getElementById('import-btn');
+        const importFile = document.getElementById('import-file');
+        if (importBtn && importFile) {
+            importBtn.addEventListener('click', () => importFile.click());
+            importFile.addEventListener('change', importData);
+        }
 });
 
 Date.prototype.getWeekNumber = function() {
